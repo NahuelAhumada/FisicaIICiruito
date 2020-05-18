@@ -15,3 +15,15 @@ class Fem{
         this.voltaje=voltaje;
     }
 }
+class Corriente{
+    constructor(Resistencia,Capacitor,Fem){
+        this.Resistencia=Resistencia;
+        this.Capacitor=Capacitor;
+        this.Fem=Fem;
+    }
+}
+
+function cramer(){
+
+}
+
