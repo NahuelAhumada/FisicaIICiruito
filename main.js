@@ -22,8 +22,23 @@ class Corriente{
         this.Fem=Fem;
     }
 }
-
-function cramer(){
-
+class Malla{
+    listaCorrientes=new Array();
+    agregarCorriente(corriente){
+        this.listaCorrientes.push(corriente);
+    }
 }
 
+function cramer(lista){
+    if(lista.length==3){
+
+    }
+
+}
+resistencia=new Resistencia(15);
+capacitor=new Capacitor(15,12,3);
+fem=new Fem(8);
+i=new Corriente(resistencia,capacitor,fem);
+console.log(i.Resistencia.ohms);
+resistencia.ohms=7;
+console.log(i.Resistencia.ohms);
