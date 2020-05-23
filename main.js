@@ -35,10 +35,14 @@ function cramer(lista){
     }
 
 }
-resistencia=new Resistencia(15);
+/* resistencia=new Resistencia(15);
 capacitor=new Capacitor(15,12,3);
 fem=new Fem(8);
 i=new Corriente(resistencia,capacitor,fem);
 console.log(i.Resistencia.ohms);
 resistencia.ohms=7;
 console.log(i.Resistencia.ohms);
+ */
+document.getElementById("elementos-circuito").addEventListener("submit",function(e){
+    
+});
