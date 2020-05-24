@@ -6,13 +6,15 @@ class Capacitor{
     }
 }
 class Resistencia{
-    constructor(ohms){
+    constructor(ohms,mallas){
         this.ohms=ohms;
+        this.mallas=mallas;
     }
 }
 class Fem{
-    constructor(voltaje){
+    constructor(voltaje, mallas){
         this.voltaje=voltaje;
+        this.mallas=mallas;
     }
 }
 class Corriente{
@@ -43,6 +45,41 @@ console.log(i.Resistencia.ohms);
 resistencia.ohms=7;
 console.log(i.Resistencia.ohms);
  */
+function crearListaDeElementos(listaDeDatos){
+    const objetos=[];
+    for(let i=0;i<listaDeDatos.length;i++){
+        let tipoDeDato=listaDeDatos[i].id;
+        switch(tipoDeDato){
+            case 'r1':
+                break;
+            case 'r2':
+                break;
+            case 'r3':
+                break;
+            case 'r4':
+                break;
+            case 'r5':
+                break;
+            case 'r6':
+                break;
+            case 'v1':
+                break;
+            case 'v2':
+                break;
+            case 'v3':
+                break;
+            case 'v4':
+                break;
+            case 'v5':
+                break;
+            case 'v6':
+                break;
+            
+        }
+    }
+}
 document.getElementById("elementos-circuito").addEventListener("submit",function(e){
-    
+    let listaDeDatos=document.querySelectorAll("input[class = 'form-control']");
+    console.log(listaDeDatos);
+    e.preventDefault();
 });
