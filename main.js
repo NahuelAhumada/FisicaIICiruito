@@ -1,3 +1,15 @@
+class Elemento{
+    constructor(valor,mallas){
+        this.valor=valor;
+        this.mallas=mallas;
+    }
+    getValor(){
+        return this.valor;
+    }
+    getMallas(){
+        return this.mallas;
+    }
+}
 class Capacitor{
     constructor(carga, voltaje, capacitancia){
         this.carga=carga;
@@ -5,16 +17,14 @@ class Capacitor{
         this.capacitancia=capacitancia;
     }
 }
-class Resistencia{
+class Resistencia extends Elemento{
     constructor(ohms,mallas){
-        this.ohms=ohms;
-        this.mallas=mallas;
+        super(ohms,mallas);
     }
 }
 class Fem{
     constructor(voltaje, mallas){
-        this.voltaje=voltaje;
-        this.mallas=mallas;
+        super(voltaje,mallas);
     }
 }
 class Corriente{
