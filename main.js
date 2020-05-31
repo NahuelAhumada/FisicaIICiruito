@@ -1,37 +1,11 @@
-class Elemento{
-    constructor(valor,mallas){
-        this.valor=valor;
-        this.mallas=mallas;
+class Rama{
+    constructor(resistencia,fem,capacitorDescargado){
+        this.resistencia=resistencia;
+        this.capacitorDescargado=capacitorDescargado;
+        this.fem=fem;
     }
-    getValor(){
-        return this.valor;
-    }
-    getMallas(){
-        return this.mallas;
-    }
-}
-class Capacitor{
-    constructor(carga, voltaje, capacitancia){
-        this.carga=carga;
-        this.voltaje=voltaje;
-        this.capacitancia=capacitancia;
-    }
-}
-class Resistencia extends Elemento{
-    constructor(ohms,mallas){
-        super(ohms,mallas);
-    }
-}
-class Fem{
-    constructor(voltaje, mallas){
-        super(voltaje,mallas);
-    }
-}
-class Corriente{
-    constructor(Resistencia,Capacitor,Fem){
-        this.Resistencia=Resistencia;
-        this.Capacitor=Capacitor;
-        this.Fem=Fem;
+    asignarListaDeMallas(lista){
+        this.listaDeMallas=lista;
     }
 }
 class Malla{
@@ -43,12 +17,17 @@ class Malla{
         this.i3=0;
     }
     asignarValorer(listaElementosDelCircuito){
-
+        for(let i =0; i<listaElementosDelCircuito.length;i++){
+            dato=listaElementosDelCircuito[i];
+            if(dato.listaMallas===[this.numero]){
+                this.voltaje+=dato.fem;
+            }
+        }
     }
 }
 
 function cramer(lista){
-    if(lista.length==3){
+    if(lista.length==4){
 
     }
 
@@ -63,56 +42,24 @@ console.log(i.Resistencia.ohms);
  */
 function crearListaDeElementos(listaDeDatos){
     const objetos=[];
-    for(let i=0;i<listaDeDatos.length;i++){
-        let tipoDeDato=listaDeDatos[i].id;
-        switch(tipoDeDato){
-            case 'r1':
-                objetos.push(new Resistencia(listaDeDatos[i].value,[1]));
-                break;
-            case 'r2':
-                objetos.push(new Resistencia(listaDeDatos[i].value,[2]));
-                break;
-            case 'r3':
-                objetos.push(new Resistencia(listaDeDatos[i].value,[1,2]));
-                break;
-            case 'r4':
-                objetos.push(new Resistencia(listaDeDatos[i].value,[1,3]));
-                break;
-            case 'r5':
-                objetos.push(new Resistencia(listaDeDatos[i].value,[2,3]));
-                break;
-            case 'r6':
-                objetos.push(new Resistencia(listaDeDatos[i].value,[3]));
-                break;
-            case 'v1':
-                objetos.push(new Fem(listaDeDatos[i].value,[1]));
-                break;
-            case 'v2':
-                objetos.push(new Fem(listaDeDatos[i].value,[2]));
-                break;
-            case 'v3':
-                objetos.push(new Fem(listaDeDatos[i].value,[1,2]));
-                break;
-            case 'v4':
-                objetos.push(new Fem(listaDeDatos[i].value,[1,3]));
-                break;
-            case 'v5':
-                objetos.push(new Fem(listaDeDatos[i].value,[2,3]));
-                break;
-            case 'v6':
-                objetos.push(new Fem(listaDeDatos[i].value,[3]));
-                break;
-            
-        }
-    }
+    let c1=document.querySelectorAll('.carga-c1').checked;
+    let c2=document.querySelectorAll('.carga-c2').checked;
+    let c3=document.querySelectorAll('.carga-c3').checked;
+    let c4=document.querySelectorAll('.carga-c4').checked;
+    let c5=document.querySelectorAll('.carga-c5').checked;
+    let c6=document.querySelectorAll('.carga-c6').checked;
+    objetos.push(new Rama(listaDeDatos[0].value,listaDeDatos[6].value,c1));
+    objetos.push(new Rama(listaDeDatos[1].value,listaDeDatos[7].value,c2));
+    objetos.push(new Rama(listaDeDatos[2].value,listaDeDatos[8].value,c3));
+    objetos.push(new Rama(listaDeDatos[3].value,listaDeDatos[9].value,c4));
+    objetos.push(new Rama(listaDeDatos[4].value,listaDeDatos[10].value,c5));
+    objetos.push(new Rama(listaDeDatos[5].value,listaDeDatos[11].value,c6));
+    
 
     return objetos;
 }
 document.getElementById("elementos-circuito").addEventListener("submit",function(e){
     let listaDeDatos=document.querySelectorAll("input[class = 'form-control']");
-    const objetosCirucuitos=crearListaDeElementos(listaDeDatos);
-    const malla1=new Malla(1);
-    const malla2=new Malla(2);
-    const malla3=new Malla(3); 
+    const objetosCirucuitos=crearListaDeElementos(listaDeDatos); 
     e.preventDefault();
 });

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
   </head>
   <body>
         <div id="content">
@@ -60,6 +61,78 @@
                     </div>
                     <div class="form-group">
                         <input type="number" id="v6" placeholder="V6"class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <h4>C1</h4>
+                        <label class="checkbox-inline check">
+                            <input type="checkbox" class="carga-c1">Descargado
+                            <input type="checkbox" class="carga-c1">Cargado
+                            <script type="text/javascript">
+                                $('.carga-c1').on('change', function() {
+                                 $('.carga-c1').not(this).prop('checked', false);  
+                                });
+                            </script>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <h4>C2</h4>
+                        <label class="checkbox-inline check">
+                            <input type="checkbox" class="carga-c2">Descargado
+                            <input type="checkbox" class="carga-c2">Cargado
+                            <script type="text/javascript">
+                                $('.carga-c2').on('change', function() {
+                                 $('.carga-c2').not(this).prop('checked', false);  
+                                });
+                            </script>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <h4>C3</h4>
+                        <label class="checkbox-inline check">
+                            <input type="checkbox" class="carga-c3">Descargado
+                            <input type="checkbox" class="carga-c3">Cargado
+                            <script type="text/javascript">
+                                $('.carga-c3').on('change', function() {
+                                 $('.carga-c3').not(this).prop('checked', false);  
+                                });
+                            </script>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <h4>C4</h4>
+                        <label class="checkbox-inline check">
+                            <input type="checkbox" class="carga-c4">Descargado
+                            <input type="checkbox" class="carga-c4">Cargado
+                            <script type="text/javascript">
+                                $('.carga-c4').on('change', function() {
+                                 $('.carga-c4').not(this).prop('checked', false);  
+                                });
+                            </script>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <h4>C5</h4>
+                        <label class="checkbox-inline check">
+                            <input type="checkbox" class="carga-c5">Descargado
+                            <input type="checkbox" class="carga-c5">Cargado
+                            <script type="text/javascript">
+                                $('.carga-c5').on('change', function() {
+                                 $('.carga-c5').not(this).prop('checked', false);  
+                                });
+                            </script>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <h4>C6</h4>
+                        <label class="checkbox-inline check">
+                            <input type="checkbox" class="carga-c6">Descargado
+                            <input type="checkbox" class="carga-c6">Cargado
+                            <script type="text/javascript">
+                                $('.carga-c6').on('change', function() {
+                                 $('.carga-c6').not(this).prop('checked', false);  
+                                });
+                            </script>
+                        </label>
                     </div>
                     <input type="submit" value="Cargar" class="btn btn-primary btn-block">
 
