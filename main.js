@@ -50,6 +50,7 @@ casos[10]=[[true,true,true,false,true,false],[false,true,true,true,true,false],[
 casos[11]=[[false,true,true,true,false,true]];
 casos[12]=[[true,false,true,false,true,true]];
 
+
 function determinarCaso(capacitores){
     
 }
@@ -58,28 +59,20 @@ function determinarCaso(capacitores){
 
 function crearListaDeElementos(resistencias, voltajes, capacitoresBoolean){
     const objetos=[];
-    for (let i=0;i<resistencias;i++){
-        let res=resistencias[i].value;
-        let fem=voltajes[i].value;
-    }
-    objetos.push(new Rama(listaDeDatos[0].value,listaDeDatos[6].value,c1));
-    objetos.push(new Rama(listaDeDatos[1].value,listaDeDatos[7].value,c2));
-    objetos.push(new Rama(listaDeDatos[2].value,listaDeDatos[8].value,c3));
-    objetos.push(new Rama(listaDeDatos[3].value,listaDeDatos[9].value,c4));
-    objetos.push(new Rama(listaDeDatos[4].value,listaDeDatos[10].value,c5));
-    objetos.push(new Rama(listaDeDatos[5].value,listaDeDatos[11].value,c6));
+    
     //definirCaso();...
 
     return objetos;
 }
 document.getElementById("elementos-circuito").addEventListener("submit",function(e){
-    let resistencias=document.querySelectorAll(".resistencia");
-    let voltajes=document.querySelectorAll(".voltaje");
+    /* let resistencias=document.querySelectorAll(".resistencia");
+    let voltajes=document.querySelectorAll(".voltaje"); */
     let capacitoresDescargados=document.querySelectorAll(".cap-descargado");
     let capacitoresBoolean= new Array();
     for (let i=0;i<capacitoresDescargados;i++){
         capacitoresBoolean.push(capacitoresDescargados[i].checked);
     }
-    const objetosCirucuitos=crearListaDeElementos(resistencias, voltajes, capacitoresBoolean);
+    console.log(capacitoresBoolean);
+    
     e.preventDefault();
 });
