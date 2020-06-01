@@ -32,34 +32,54 @@ function cramer(lista){
     }
 
 }
-/* resistencia=new Resistencia(15);
-capacitor=new Capacitor(15,12,3);
-fem=new Fem(8);
-i=new Corriente(resistencia,capacitor,fem);
-console.log(i.Resistencia.ohms);
-resistencia.ohms=7;
-console.log(i.Resistencia.ohms);
- */
-function crearListaDeElementos(listaDeDatos){
+casos=new Array();
+//3 mallas
+casos[0]=[[true,true,true,true,true,true]];
+//2 mallas
+casos[1]=[[false,true,true,true,true,true]];
+casos[2]=[[true,false,true,true,true,true]];
+casos[3]=[[true,true,false,true,true,true]];
+casos[4]=[[true,true,true,false,true,true]];
+casos[5]=[[true,true,true,true,false,true]];
+casos[6]=[[true,true,true,true,true,false]];
+//1 malla
+casos[7]=[[true,true,false,true,true,false]];
+casos[8]=[[true,true,false,false,true,true],[true,true,false,true,false,true],[true,true,false,false,false,true]];
+casos[9]=[[true,true,true,true,false,false],[true,false,true,true,false,true],[true,false,true,true,true,false],[true,false,true,true,false,false]];
+casos[10]=[[true,true,true,false,true,false],[false,true,true,true,true,false],[false,true,true,false,true,true],[false,true,true,false,true,false]];
+casos[11]=[[false,true,true,true,false,true]];
+casos[12]=[[true,false,true,false,true,true]];
+
+function determinarCaso(capacitores){
+    
+}
+
+
+
+function crearListaDeElementos(resistencias, voltajes, capacitoresBoolean){
     const objetos=[];
-    let c1=document.querySelectorAll('.carga-c1').checked;
-    let c2=document.querySelectorAll('.carga-c2').checked;
-    let c3=document.querySelectorAll('.carga-c3').checked;
-    let c4=document.querySelectorAll('.carga-c4').checked;
-    let c5=document.querySelectorAll('.carga-c5').checked;
-    let c6=document.querySelectorAll('.carga-c6').checked;
+    for (let i=0;i<resistencias;i++){
+        let res=resistencias[i].value;
+        let fem=voltajes[i].value;
+    }
     objetos.push(new Rama(listaDeDatos[0].value,listaDeDatos[6].value,c1));
     objetos.push(new Rama(listaDeDatos[1].value,listaDeDatos[7].value,c2));
     objetos.push(new Rama(listaDeDatos[2].value,listaDeDatos[8].value,c3));
     objetos.push(new Rama(listaDeDatos[3].value,listaDeDatos[9].value,c4));
     objetos.push(new Rama(listaDeDatos[4].value,listaDeDatos[10].value,c5));
     objetos.push(new Rama(listaDeDatos[5].value,listaDeDatos[11].value,c6));
-    
+    //definirCaso();...
 
     return objetos;
 }
 document.getElementById("elementos-circuito").addEventListener("submit",function(e){
-    let listaDeDatos=document.querySelectorAll("input[class = 'form-control']");
-    const objetosCirucuitos=crearListaDeElementos(listaDeDatos); 
+    let resistencias=document.querySelectorAll(".resistencia");
+    let voltajes=document.querySelectorAll(".voltaje");
+    let capacitoresDescargados=document.querySelectorAll(".cap-descargado");
+    let capacitoresBoolean= new Array();
+    for (let i=0;i<capacitoresDescargados;i++){
+        capacitoresBoolean.push(capacitoresDescargados[i].checked);
+    }
+    const objetosCirucuitos=crearListaDeElementos(resistencias, voltajes, capacitoresBoolean);
     e.preventDefault();
 });
