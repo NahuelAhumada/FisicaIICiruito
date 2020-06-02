@@ -1,7 +1,6 @@
 class Rama{
-    constructor(resistencia,fem,capacitorDescargado){
+    constructor(resistencia,fem){
         this.resistencia=resistencia;
-        this.capacitorDescargado=capacitorDescargado;
         this.fem=fem;
     }
     asignarListaDeMallas(lista){
@@ -52,7 +51,13 @@ casos[12]=[[true,false,true,false,true,true]];
 
 
 function determinarCaso(capacitores){
-    
+    let encontrado=false;
+    for(let i=0;i<casos.length&&!encontrado;i++){
+        if(casos[i].includes(capacitores)){
+            return i;
+        }
+    }
+    return -1;
 }
 
 
@@ -69,10 +74,10 @@ document.getElementById("elementos-circuito").addEventListener("submit",function
     let voltajes=document.querySelectorAll(".voltaje"); */
     let capacitoresDescargados=document.querySelectorAll(".cap-descargado");
     let capacitoresBoolean= new Array();
-    for (let i=0;i<capacitoresDescargados;i++){
+    for (let i=0;i<capacitoresDescargados.length;i++){
         capacitoresBoolean.push(capacitoresDescargados[i].checked);
     }
-    console.log(capacitoresBoolean);
     
+    console.log(capacitoresBoolean);
     e.preventDefault();
 });
